@@ -12,10 +12,10 @@ public class Main {
         // все строки длиной 5 символов и менее, используя Stream API.
 
         //Создаем коллекцию со списком строк
-        List<String> listOfStrings = Arrays.asList("12", "fsdf", "43к4к", "rewe", "123456");
+        List<String> strings = Arrays.asList("12", "fsdf", "43к4к", "rewe", "123456");
 
         //С помощью filter() убираем строки длиной 5 и менее символов
-        List<String> newListOfStrings = listOfStrings.stream()
+        List<String> newListOfStrings = strings.stream()
                 .filter(a -> a.length() > 5)
                 .toList();
 
@@ -23,19 +23,19 @@ public class Main {
 
         //Задача 2. Фильтрация чисел, кратных 5. Напишите программу, которая принимает список чисел
         // и отбирает только те, которые делятся на 5 без остатка, используя Stream API.
-        List<Integer> listOfIntegers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        List<Integer> newListOfIntegers = listOfIntegers.stream()
+        List<Integer> newIntegers = integers.stream()
                 .filter(a -> a % 5 == 0)
                 .toList();
 
-        System.out.println(newListOfIntegers);
+        System.out.println(newIntegers);
 
         //Задача 3. Преобразование строк в их длины. Напишите программу, которая принимает список строк
         // и заменяет каждую строку на её длину, используя Stream API.
 
         //Использую коллекцию со списком строк из задачи 1
-        List<Integer> getLength = listOfStrings.stream()
+        List<Integer> getLength = strings.stream()
                 .map(a -> a.length())
                 .toList();
 
@@ -46,7 +46,7 @@ public class Main {
         // и преобразует его в новый список, где каждое число заменено на его квадрат, используя Stream API.
 
         //Использую коллекцию со списком чисел из задачи 2
-        List<Integer> getSquaredListOfIntegers = listOfIntegers.stream()
+        List<Integer> getSquaredListOfIntegers = integers.stream()
                 .map(s -> s * s)
                 .toList();
 
@@ -56,10 +56,10 @@ public class Main {
         //Задача 5. Удаление дубликатов из списка. Напишите программу, которая
         // принимает список элементов и удаляет из него все дубликаты, используя Stream API.
 
-        List<Integer> newListOfInt = Arrays.asList(1, 2, 2, 2, 4, 5, 6, 7, 7, 8);
+        List<Integer> numbers = Arrays.asList(1, 2, 2, 2, 4, 5, 6, 7, 7, 8);
 
         //stream удаляет дубликаты с помощью метода distinct()
-        List<Integer> deleteDuplicates = newListOfInt.stream()
+        List<Integer> deleteDuplicates = numbers.stream()
                 .distinct()
                 .toList();
 

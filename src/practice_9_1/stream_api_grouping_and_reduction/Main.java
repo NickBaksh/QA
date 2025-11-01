@@ -32,7 +32,7 @@ public class Main {
         //Использую список чисел из задачи 2
         //Преобразуем список в int и находим среднее значение через average()
         OptionalDouble getMediumValue = listOfIntegers.stream()
-                .mapToInt(s -> s)
+                .mapToInt(Integer::intValue)
                 .average();
 
         System.out.println(getMediumValue.getAsDouble());

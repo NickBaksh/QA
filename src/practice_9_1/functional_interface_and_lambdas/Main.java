@@ -12,12 +12,18 @@ public class Main {
         MathOperation sum = (a, b) -> a + b;
         MathOperation difference = (a, b) -> a - b;
         MathOperation multiply = (a, b) -> a * b;
-        MathOperation divide = (a, b) -> a / b;
+
+        //Добавил проверку на деление на 0
+        MathOperation divide = (a, b) -> {
+            if (b == 0) {
+                throw new ArithmeticException("Ошибка при делении на 0");
+            } return a / b;
+        };
 
         System.out.println(sum.operate(2, 5));
         System.out.println(difference.operate(2, 5));
         System.out.println(multiply.operate(2, 5));
-        System.out.println(divide.operate(20, 5));
+        System.out.println(divide.operate(4, 2));
 
 
         //Задача 2. Использование анонимного класса. Создайте анонимный класс, реализующий интерфейс Runnable,

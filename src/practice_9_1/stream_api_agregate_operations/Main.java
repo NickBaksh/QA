@@ -8,30 +8,35 @@ public class Main {
 
         //Задача 1. Поиск максимального элемента. Напишите программу, которая принимает
         // список чисел и находит в нём самое большое число, используя Stream API.
-        List<Integer> ListOfIntegers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         //Возвращаем самое большое число в ListOfIntegers. Находим с помощью метода max()
-        OptionalInt getMaxValue = ListOfIntegers.stream()
+        OptionalInt getMaxValue = integers.stream()
                 .mapToInt(s -> s)
                 .max();
 
-        System.out.println(getMaxValue.getAsInt());
+        if (getMaxValue.isPresent()) {
+            System.out.println("Максимальное число: " + getMaxValue.getAsInt());
+        }
+        else System.out.println("В списке отсутствуют числа!");
 
         //Задача 2. Поиск минимального элемента. Напишите программу, которая принимает
         // список чисел и находит в нем наименьшее число, используя Stream API.
 
         //Использую список чисел из задачи 1
-        OptionalInt getMinValue = ListOfIntegers.stream()
+        OptionalInt getMinValue = integers.stream()
                 .mapToInt(s -> s)
                 .min();
 
-        System.out.println(getMinValue.getAsInt());
+        if (getMinValue.isPresent()) {
+            System.out.println("Минимальное число в списке: " + getMinValue.getAsInt());
+        } else System.out.println("В списке отсутствуют числа!");
 
         //Задача 3. Сумма всех элементов списка. Напишите программу, которая принимает
         // список чисел и вычисляет их сумму, используя Stream API.
 
         //Использую список чисел из задачи 1. Преобразую список в int. Через метод sum() вычисляю сумму чисел
-        OptionalLong getSumOfValues = OptionalLong.of(ListOfIntegers.stream()
+        OptionalLong getSumOfValues = OptionalLong.of(integers.stream()
                 .mapToInt(s -> s)
                 .sum());
 
@@ -52,12 +57,12 @@ public class Main {
         // которая проверяет, есть ли хотя бы один элемент в списке, который удовлетворяет
         // заданному условию (например, является чётным числом), используя Stream API.
 
-        List<Integer> someNumbers = Arrays.asList(1, 2, 3);
-        boolean isConsistEvenNumber = someNumbers.stream()
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
+        boolean isEvenNumber = numbers.stream()
                 .anyMatch(s -> s % 2 == 0);
 
-        //В зависимости от boolean результата "someNumbers" печатает сообщение в консоль
-        if (isConsistEvenNumber) {
+        //В зависимости от boolean результата "numbers" печатает сообщение в консоль
+        if (isEvenNumber) {
             System.out.println("В списке есть четные числа!");
         } else System.out.println("В списке отсутствуют четные числа");
     }
